@@ -6,14 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="White">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Margin="10,10,10,10">
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                 <GradientStop Color="White" Offset="0.0" />
-                <GradientStop Color="BlueViolet" Offset="0.25" />
-                <GradientStop Color="Blue" Offset="0.75" />
                 <GradientStop Color="Blue" Offset="1.0" />
             </LinearGradientBrush>
         </Grid.Background>
@@ -26,18 +24,20 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Contacts" Foreground="Black" Margin="5" />
-        <Button Grid.Column="2"  Background="Transparent" Height="32" Width="32" VerticalAlignment="Top" HorizontalAlignment="Right" >
-            <StackPanel Grid.Column="2">
-                <Image Source="./plusIcon.png" Height="62" HorizontalAlignment="Center" />
-                <TextBlock Text="Add" Foreground="Black" HorizontalAlignment="Center"/>
-            </StackPanel>
-        </Button>
-        <TextBox Grid.Row="1" PlaceholderText="Search..." BorderThickness="2" Grid.ColumnSpan="3" VerticalAlignment="Top"  />
+        <CommandBar Background="gray" HorizontalAlignment="Stretch" Margin="0,10,0,10" OverflowButtonVisibility="Visible" >
+            <AppBarToggleButton Icon="Add" Label="Add"  VerticalAlignment="Center"/>
+            <CommandBar.Content>
+                <TextBlock Text="Contacts"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10" Foreground="Black"/>
+            </CommandBar.Content>
+        </CommandBar>
+
+        <TextBox Grid.Row="1" PlaceholderText="Search..." PlaceholderForeground="Black" 
+                 BorderThickness="2" VerticalAlignment="Top" 
+                 Background="White" BorderBrush="Gray"
+                 Foreground="Black"
+                 />
         <ListView Grid.Row="2" />
     </Grid>
 </Page>
