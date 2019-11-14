@@ -26,6 +26,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+
         <CommandBar Background="gray" HorizontalAlignment="Stretch" Margin="0,10,0,10" OverflowButtonVisibility="Visible" >
             <AppBarToggleButton Icon="Add" Label="Add"  VerticalAlignment="Center"/>
             <CommandBar.Content>
