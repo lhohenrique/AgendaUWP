@@ -19,9 +19,9 @@
         </Grid.Background>
 
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -31,13 +31,13 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="Contacts" Foreground="Black" Margin="5" />
-        <Button Grid.Column="2"  Background="Transparent" Height="100" Width="80" VerticalAlignment="Top" >
+        <Button Grid.Column="2"  Background="Transparent" Height="32" Width="32" VerticalAlignment="Top" HorizontalAlignment="Right" >
             <StackPanel Grid.Column="2">
-                <Image Source="Assets/plusIcon.png" Height="62"/>
+                <Image Source="./plusIcon.png" Height="62" HorizontalAlignment="Center" />
                 <TextBlock Text="Add" Foreground="Black" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <TextBox Grid.Row="1" PlaceholderText="Search..." BorderThickness="5" Grid.ColumnSpan="3" />
+        <TextBox Grid.Row="1" PlaceholderText="Search..." BorderThickness="2" Grid.ColumnSpan="3" VerticalAlignment="Top"  />
         <ListView Grid.Row="2" />
     </Grid>
 </Page>
