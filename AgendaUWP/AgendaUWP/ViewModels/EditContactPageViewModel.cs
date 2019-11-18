@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AgendaUWP.ViewModels
 {
-    class EditContactPageViewModel : ViewModelBase
+    public class EditContactPageViewModel : ViewModelBase
     {
         #region properties
         private INavigationService navigationService;
