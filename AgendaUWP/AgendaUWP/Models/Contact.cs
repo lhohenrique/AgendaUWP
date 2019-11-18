@@ -16,7 +16,7 @@ namespace AgendaUWP.Models
             get { return _url; }
             set { SetProperty(ref _url, value); }
         }
-
+        
         private string _fullname;
         public string FullName
         {
