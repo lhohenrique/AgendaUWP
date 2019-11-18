@@ -36,7 +36,7 @@ namespace AgendaUWP
 
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs args)
         {
-            NavigationService.Navigate(PageTokens.MainPage, null);
+            NavigationService.Navigate(PageTokens.EditContactPage, null);
             return Task.FromResult<object>(null);
         }
 
