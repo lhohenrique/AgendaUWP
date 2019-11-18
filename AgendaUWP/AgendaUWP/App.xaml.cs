@@ -42,7 +42,6 @@ namespace AgendaUWP
 
         protected override void ConfigureContainer()
         {
-            
             base.ConfigureContainer();
         }
     }
