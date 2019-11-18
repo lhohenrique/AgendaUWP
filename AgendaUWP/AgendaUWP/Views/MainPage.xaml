@@ -25,10 +25,6 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
         <CommandBar Background="LightGray"  HorizontalAlignment="Stretch" Margin="0,10,0,10" OverflowButtonVisibility="Visible" >
             <AppBarToggleButton Icon="Add" Label="Add"  VerticalAlignment="Center" Command="{Binding NavigateToAddContactPageCommand}" />
             <CommandBar.Content>
