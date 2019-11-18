@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AgendaUWP.Models
 {
-    class Contact : BindableBase
+    public class Contact : BindableBase
     {
         #region properties
         private string _url;
