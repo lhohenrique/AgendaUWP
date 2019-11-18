@@ -21,8 +21,7 @@ namespace AgendaUWP.ViewModels
         public MainPageViewModel(INavigationService navigationService)
         {
             this.navigationService = navigationService;
-            initilizeCommands();
-            Debug.WriteLine("teste");
+            InitilizeCommands();
         }
         #endregion
 
@@ -42,7 +41,7 @@ namespace AgendaUWP.ViewModels
         #endregion
 
         #region initializers
-        private void initilizeCommands()
+        private void InitilizeCommands()
         {
             NavigateToAddContactPageCommand = new DelegateCommand(NavigateToAddContactPage);
         }

@@ -21,7 +21,7 @@ namespace AgendaUWP.ViewModels
         public AddContactPageViewModel(INavigationService navigationService)
         {
             this.navigationService = navigationService;
-            initilizeCommands();
+            InitilizeCommands();
         }
         #endregion
 
@@ -42,7 +42,7 @@ namespace AgendaUWP.ViewModels
         #endregion
 
         #region initializers
-        private void initilizeCommands()
+        private void InitilizeCommands()
         {
             SaveContactCommand = new DelegateCommand(SaveContact);
             CancelSaveCommand  = new DelegateCommand(CancelSave);
@@ -51,7 +51,7 @@ namespace AgendaUWP.ViewModels
 
         private void SaveContact()
         {
-            Debug.WriteLine("SaveContact");
+            
         }
 
         private void CancelSave()
