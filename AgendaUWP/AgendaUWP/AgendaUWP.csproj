@@ -122,10 +122,14 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\PageTokens.cs" />
     <Compile Include="ViewModels\AddContactPageViewModel.cs" />
+    <Compile Include="ViewModels\EditContactPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\AddContactPage.xaml.cs">
       <DependentUpon>AddContactPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditContactPage.xaml.cs">
+      <DependentUpon>EditContactPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -154,6 +158,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Views\AddContactPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditContactPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
