@@ -120,9 +120,14 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ContactItemsGroup.cs" />
+    <Compile Include="Models\IGroupedContactItems.cs" />
     <Compile Include="Models\PageTokens.cs" />
+    <Compile Include="Service\IDataService.cs" />
+    <Compile Include="Service\SampleDataService.cs" />
     <Compile Include="ViewModels\AddContactPageViewModel.cs" />
     <Compile Include="ViewModels\EditContactPageViewModel.cs" />
+    <Compile Include="ViewModels\ListaPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\AddContactPage.xaml.cs">
@@ -130,6 +135,9 @@
     </Compile>
     <Compile Include="Views\EditContactPage.xaml.cs">
       <DependentUpon>EditContactPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListaPage.xaml.cs">
+      <DependentUpon>ListaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -162,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditContactPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
