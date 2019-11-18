@@ -10,5 +10,6 @@ namespace AgendaUWP.Models
     {
         public const string MainPage = "Main";
         public const string AddContactPage = "AddContact";
+        public const string EditContactPage = "EditContact";
     }
 }
