@@ -18,16 +18,6 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto" />
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
         <CommandBar Background="LightGray"  HorizontalAlignment="Stretch" Margin="0,10,0,10" OverflowButtonVisibility="Visible" >
             <AppBarToggleButton Icon="Save" Label="Save"  VerticalAlignment="Center" />
             <AppBarSeparator/>
@@ -37,6 +27,25 @@
             </CommandBar.Content>
         </CommandBar>
 
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Contact" Margin="0,15" FontSize="30"/>
+            <TextBox Grid.Row="1" Margin="0,5" PlaceholderText="Full Name" FontSize="20" TextWrapping="Wrap" Width="350" />
+            <TextBox Grid.Row="2" Margin="0,5" PlaceholderText="Nick Name" FontSize="20" TextWrapping="Wrap" Width="350" />
+            <TextBox Grid.Row="3" Margin="0,5" PlaceholderText="Age" FontSize="20" TextWrapping="Wrap" Width="350" />
+            <TextBox Grid.Row="4" Margin="0,5" PlaceholderText="Phone" FontSize="20" TextWrapping="Wrap" Width="350" />
+
+        </Grid>
+        
        
     </Grid>
 </Page>
+
+    
