@@ -37,8 +37,8 @@ namespace AgendaUWP.ViewModels
         #endregion
 
         #region commands
-        public DelegateCommand SaveContactCommand { get; set; }
-        public DelegateCommand CancelSaveCommand { get; set; }
+        public DelegateCommand SaveContactCommand { get; private set; }
+        public DelegateCommand CancelSaveCommand { get; private set; }
         #endregion
 
         #region initializers
