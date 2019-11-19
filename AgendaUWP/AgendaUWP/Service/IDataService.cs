@@ -9,6 +9,6 @@ namespace AgendaUWP.Service
 {
     public interface IDataService
     {
-        IEnumerable<Contact> GetMenus();
+        IEnumerable<Contact> GetContacts();
     }
 }

@@ -20,9 +20,9 @@ namespace AgendaUWP.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ListaPage : Page
+    public sealed partial class ContactListPage : Page
     {
-        public ListaPage()
+        public ContactListPage()
         {
             this.InitializeComponent();
         }

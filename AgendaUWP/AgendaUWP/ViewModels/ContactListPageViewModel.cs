@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace AgendaUWP.ViewModels
 {
-    public class ListaPageViewModel : ViewModelBase
+    public class ContactListPageViewModel : ViewModelBase
     {
         private readonly IDataService _dataService;
 
-        public ListaPageViewModel(IDataService dataService)
+        public ContactListPageViewModel(IDataService dataService)
         {
             this._dataService = dataService;
             GetData();
@@ -21,8 +21,8 @@ namespace AgendaUWP.ViewModels
 
         private void GetData()
         {
-            var menus = _dataService.GetMenus();
-            GroupedContactItems = menus.GroupBy(m => m.FullName[0] , (key, list) => new ContactItemsGroup(key, list));
+            var contacts = _dataService.GetContacts();
+            GroupedContactItems = contacts.GroupBy(m => m.FullName[0] , (key, list) => new ContactItemsGroup(key, list));
         }
 
         public IEnumerable<ContactItemsGroup> GroupedContactItems { get; private set; }

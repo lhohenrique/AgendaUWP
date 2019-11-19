@@ -9,7 +9,7 @@ namespace AgendaUWP.Service
 {
     class SampleDataService : IDataService
     {
-        public IEnumerable<Contact> GetMenus()
+        public IEnumerable<Contact> GetContacts()
         {
             return new List<Contact>()
                 {
