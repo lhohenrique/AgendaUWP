@@ -10,12 +10,13 @@
     xmlns:prism="using:Prism.Windows.Mvvm"
     prism:ViewModelLocator.AutoWireViewModel="true"
     >
-    <Grid Style="{StaticResource BackgroundApplication}">
+
+   <Grid Style="{StaticResource BackgroundApplication}">
 
         <CommandBar Background="LightGray"  HorizontalAlignment="Stretch" Margin="0,10,0,10" OverflowButtonVisibility="Visible" >
-            <AppBarToggleButton Icon="Save" Label="Save"  VerticalAlignment="Center" />
+            <AppBarToggleButton Icon="Save" Label="Save"  VerticalAlignment="Center" Command="{Binding SaveCommand}"/>
             <AppBarSeparator/>
-            <AppBarToggleButton Icon="Cancel" Label="Cancel"  VerticalAlignment="Center" Command="{Binding CancelSaveCommand}" />
+            <AppBarToggleButton Icon="Cancel" Label="Cancel"  VerticalAlignment="Center" Command="{Binding CancelCommand}" />
             <CommandBar.Content>
                 <TextBlock Text="Contacts"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10" Foreground="Black"/>
             </CommandBar.Content>
@@ -31,10 +32,10 @@
             </Grid.RowDefinitions>
 
             <TextBlock Text="Contact" Margin="0,15" FontSize="30"/>
-            <TextBox Grid.Row="1" Margin="0,5" PlaceholderText="Full Name" FontSize="20" TextWrapping="Wrap" Width="350" />
-            <TextBox Grid.Row="2" Margin="0,5" PlaceholderText="Nick Name" FontSize="20" TextWrapping="Wrap" Width="350" />
-            <TextBox Grid.Row="3" Margin="0,5" PlaceholderText="Age" FontSize="20" TextWrapping="Wrap" Width="350" />
-            <TextBox Grid.Row="4" Margin="0,5" PlaceholderText="Phone" FontSize="20" TextWrapping="Wrap" Width="350" />
+            <TextBox Grid.Row="1" Margin="0,5" PlaceholderText="Full Name" FontSize="20" TextWrapping="Wrap" Width="350" Text="{Binding Contact.FullName, Mode=TwoWay}" />
+            <TextBox Grid.Row="2" Margin="0,5" PlaceholderText="Nick Name" FontSize="20" TextWrapping="Wrap" Width="350" Text="{Binding Contact.NickName, Mode=TwoWay}"/>
+            <TextBox Grid.Row="3" Margin="0,5" PlaceholderText="Age" FontSize="20" TextWrapping="Wrap" Width="350" Text="{Binding Contact.Age, Mode=TwoWay}"/>
+            <TextBox Grid.Row="4" Margin="0,5" PlaceholderText="Phone" FontSize="20" TextWrapping="Wrap" Width="350" Text="{Binding Contact.Phone, Mode=TwoWay}"/>
 
         </Grid>
         
