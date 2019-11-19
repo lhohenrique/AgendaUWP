@@ -30,7 +30,14 @@
             IsSourceGrouped="True" />
     </Page.Resources>
 
-    <Grid Background="Gray">
+    <Grid >
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="White" Offset="0.0" />
+                <GradientStop Color="Black" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>

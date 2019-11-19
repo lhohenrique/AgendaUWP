@@ -13,9 +13,12 @@ namespace AgendaUWP.Service
         {
             return new List<Contact>()
                 {
-                    new Contact { FullName = "Eric", Age = 200, NickName = "EHMS"  },
-                    new Contact { FullName = "Daniel Barros", Age = 100, NickName = "Dan"  },
-                    new Contact { FullName = "Eric2", Age = 200, NickName = "EHMS2"  },
+                    new Contact { FullName = "aa Contact 1", Age = 200, NickName = "EHMS"  },
+                    new Contact { FullName = "aa Contact 2", Age = 100, NickName = "Dan"  },
+                    new Contact { FullName = "bb Contact 3", Age = 200, NickName = "EHMS2"  },
+                    new Contact { FullName = "bb Contact 4", Age = 200, NickName = "EHMS2"  },
+                    new Contact { FullName = "cc Contact 5", Age = 200, NickName = "EHMS2"  },
+                    new Contact { FullName = "cc Contact 6", Age = 200, NickName = "EHMS2"  },
                 };
         }
     }
