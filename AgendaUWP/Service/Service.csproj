@@ -121,6 +121,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Model\Contact.cs" />
+    <Compile Include="Model\ContactItemsGroup.cs" />
+    <Compile Include="Model\IGroupedContactItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Contact\ContactService.cs" />
     <Compile Include="Contact\IContactService.cs" />

@@ -1,27 +1,24 @@
-﻿using AgendaUWP.Models;
-using AgendaUWP.Service;
-using Prism.Windows.Mvvm;
-using System;
+﻿using Prism.Windows.Mvvm;
+using Service.Contact;
+using Service.Model;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AgendaUWP.ViewModels
 {
     public class ContactListPageViewModel : ViewModelBase
     {
-        private readonly IDataService _dataService;
+        private readonly IContactService<Contact> _contactService;
 
-        public ContactListPageViewModel(IDataService dataService)
+        public ContactListPageViewModel(IContactService<Contact> contactService)
         {
-            this._dataService = dataService;
+            this._contactService = contactService;
             GetData();
         }
 
         private void GetData()
         {
-            var contacts = _dataService.GetContacts();
+            var contacts = _contactService.GetContacts();
             GroupedContactItems = contacts.GroupBy(m => m.FullName[0] , (key, list) => new ContactItemsGroup(key, list));
         }
 

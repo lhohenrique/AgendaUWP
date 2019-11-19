@@ -120,8 +120,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\PageTokens.cs" />
-    <Compile Include="Service\IDataService.cs" />
-    <Compile Include="Service\SampleDataService.cs" />
     <Compile Include="ViewModels\AddContactPageViewModel.cs" />
     <Compile Include="ViewModels\EditContactPageViewModel.cs" />
     <Compile Include="ViewModels\ContactListPageViewModel.cs" />
