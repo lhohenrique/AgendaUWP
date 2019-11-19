@@ -2,12 +2,9 @@
 using Prism.Commands;
 using Prism.Windows.Mvvm;
 using Prism.Windows.Navigation;
-using System;
+using Service.Model;
+using Service.Contact;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AgendaUWP.ViewModels
 {
@@ -15,12 +12,14 @@ namespace AgendaUWP.ViewModels
     {
         #region properties
         private INavigationService navigationService;
+        private IContactService<Contact> contactService;
         #endregion
 
         #region Constructor
-        public AddContactPageViewModel(INavigationService navigationService)
+        public AddContactPageViewModel(INavigationService navigationService, IContactService<Contact> contactService)
         {
             this.navigationService = navigationService;
+            this.contactService = contactService;
             InitilizeCommands();
         }
         #endregion
