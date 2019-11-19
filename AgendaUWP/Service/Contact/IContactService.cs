@@ -8,6 +8,8 @@ namespace Service.Contact
 {
     public interface IContactService<Contact>
     {
-        void Add(Contact contact);        
+        void Add(Contact contact);
+
+        IEnumerable<Contact> GetContacts();
     }
 }
