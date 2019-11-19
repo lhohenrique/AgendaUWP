@@ -2,6 +2,7 @@
 using Prism.Commands;
 using Prism.Windows.Mvvm;
 using Prism.Windows.Navigation;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AgendaUWP.ViewModels
 {
-    class EditContactPageViewModel : ViewModelBase
+    public class EditContactPageViewModel : ViewModelBase
     {
         #region properties
         private INavigationService navigationService;

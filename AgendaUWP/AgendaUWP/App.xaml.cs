@@ -1,6 +1,8 @@
 ﻿using AgendaUWP.Models;
-using AgendaUWP.Service;
+using Data.DataService;
 using Prism.Unity.Windows;
+using Service.Model;
+using Service.Contact;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -43,7 +45,8 @@ namespace AgendaUWP
 
         protected override void ConfigureContainer()
         {
-            RegisterTypeIfMissing(typeof(IDataService), typeof(SampleDataService), true);
+            RegisterTypeIfMissing(typeof(IContactService<Contact>), typeof(ContactService), true);
+            RegisterTypeIfMissing(typeof(IDataStorage), typeof(ListDataStorage), true);
             base.ConfigureContainer();
         }
     }
