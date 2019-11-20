@@ -49,15 +49,20 @@ namespace AgendaUWP.ViewModels
         private ObservableCollection<ContactItemsGroup> GetData()
         {
             var contacts = _contactService.GetContacts();
+
+            ObservableCollection<ContactItemsGroup> contactsObservable;
+
             if (contacts != null && contacts.Count() > 0)
             {
                 GroupedContactItems = contacts.GroupBy(m => m.FullName[0], (key, list) => new ContactItemsGroup(key, list));
-                return new ObservableCollection<ContactItemsGroup>(GroupedContactItems);
+                contactsObservable = new ObservableCollection<ContactItemsGroup>(GroupedContactItems);
             }
             else
             {
-                return null;
+                contactsObservable = new ObservableCollection<ContactItemsGroup>();
             }
+
+            return contactsObservable;
         }
     }
 }
