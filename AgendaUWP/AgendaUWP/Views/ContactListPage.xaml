@@ -59,7 +59,7 @@
 
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="ItemClick">
-                    <Core:InvokeCommandAction Command="{Binding EditCommand}" CommandParameter="{Binding SelectedItem, ElementName=ContactList}" />
+                    <Core:InvokeCommandAction Command="{Binding DetailCommand}" CommandParameter="{Binding SelectedItem, ElementName=ContactList}" />
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
           
