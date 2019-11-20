@@ -57,7 +57,7 @@ namespace AgendaUWP.ViewModels
             }
             else
             {
-                return null;
+                return new ObservableCollection<ContactItemsGroup>();
             }
         }
     }
