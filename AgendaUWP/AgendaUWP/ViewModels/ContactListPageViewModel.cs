@@ -12,6 +12,9 @@ namespace AgendaUWP.ViewModels
 {
     public class ContactListPageViewModel : ViewModelBase
     {
+
+        #region properties
+
         private readonly IContactService<Contact> _contactService;
         private INavigationService _navigationService;
 
@@ -24,19 +27,9 @@ namespace AgendaUWP.ViewModels
 
         public IEnumerable<ContactItemsGroup> GroupedContactItems { get; private set; }
 
-        public DelegateCommand<Contact> EditCommand { get; private set; }
-
-        #region initializers
-        private void InitilizeCommands()
-        {
-            EditCommand = new DelegateCommand<Contact>(EditContact);
-        }
         #endregion
 
-        private void EditContact(Contact contact)
-        {
-            _navigationService.Navigate(PageTokens.DetailContactPage, contact);
-        }
+        #region constructors
 
         public ContactListPageViewModel(IContactService<Contact> contactService, INavigationService navigationService)
         {
@@ -46,12 +39,40 @@ namespace AgendaUWP.ViewModels
             InitilizeCommands();
         }
 
+        #endregion
+
+        #region commands
+
+        public DelegateCommand<Contact> DetailCommand { get; private set; }
+
+        #endregion
+
+        #region initializers
+
+        private void InitilizeCommands()
+        {
+            DetailCommand = new DelegateCommand<Contact>(GoToDetailContact);
+        }
+
+        #endregion
+
+        #region methods
+
+        private void GoToDetailContact(Contact contact)
+        {
+            _navigationService.Navigate(PageTokens.DetailContactPage, contact);
+        }
+
         private ObservableCollection<ContactItemsGroup> GetData()
         {
             var contacts = _contactService.GetContacts();
             if (contacts != null && contacts.Count() > 0)
             {
-                GroupedContactItems = contacts.GroupBy(m => m.FullName[0], (key, list) => new ContactItemsGroup(key, list));
+                GroupedContactItems = contacts
+                                        .OrderBy(c => c.FullName)
+                                        .GroupBy(c => c.FullName[0], (key, list) => new ContactItemsGroup(key, list));
+
+
                 return new ObservableCollection<ContactItemsGroup>(GroupedContactItems);
             }
             else
@@ -59,5 +80,6 @@ namespace AgendaUWP.ViewModels
                 return null;
             }
         }
+        #endregion
     }
 }
