@@ -2,12 +2,9 @@
 using Prism.Commands;
 using Prism.Windows.Mvvm;
 using Prism.Windows.Navigation;
-using System;
+using Service.Model;
+using Service.Contact;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AgendaUWP.ViewModels
 {
@@ -15,12 +12,21 @@ namespace AgendaUWP.ViewModels
     {
         #region properties
         private INavigationService navigationService;
+        private IContactService<Contact> contactService;
+        private Contact contact;
+        public Contact Contact
+        {
+            get { return contact; }
+            set { SetProperty(ref contact, value); }
+        }
         #endregion
 
         #region Constructor
-        public AddContactPageViewModel(INavigationService navigationService)
+        public AddContactPageViewModel(INavigationService navigationService, IContactService<Contact> contactService)
         {
             this.navigationService = navigationService;
+            this.contactService = contactService;
+            Contact = new Contact();
             InitilizeCommands();
         }
         #endregion
@@ -37,21 +43,22 @@ namespace AgendaUWP.ViewModels
         #endregion
 
         #region commands
-        public DelegateCommand SaveContactCommand { get; private set; }
-        public DelegateCommand CancelSaveCommand { get; private set; }
+        public DelegateCommand SaveCommand { get; private set; }
+        public DelegateCommand CancelCommand { get; private set; }
         #endregion
 
         #region initializers
         private void InitilizeCommands()
         {
-            SaveContactCommand = new DelegateCommand(SaveContact);
-            CancelSaveCommand  = new DelegateCommand(CancelSave);
+            SaveCommand = new DelegateCommand(SaveContact);
+            CancelCommand  = new DelegateCommand(CancelSave);
         }
         #endregion
 
         private void SaveContact()
         {
-            
+            contactService.Add(Contact);
+            navigationService.Navigate(PageTokens.MainPage, false);
         }
 
         private void CancelSave()
