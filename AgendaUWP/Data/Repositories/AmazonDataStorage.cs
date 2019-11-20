@@ -8,6 +8,11 @@ namespace Data.DataService
 {
     public class AmazonDataStorage : IDataStorage
     {
+        public List<IDataRecord> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Save(IDataRecord dataRecord)
         {
             
