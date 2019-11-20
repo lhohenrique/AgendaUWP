@@ -24,7 +24,6 @@ namespace AgendaUWP.ViewModels
 
         public IEnumerable<ContactItemsGroup> GroupedContactItems { get; private set; }
 
-
         public DelegateCommand<Contact> EditCommand { get; private set; }
 
         #region initializers
