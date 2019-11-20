@@ -9,5 +9,7 @@ namespace Data.DataService
     public interface IDataStorage
     {
         void Save(IDataRecord dataRecord);
+
+        List<IDataRecord> GetAll();
     }
 }
