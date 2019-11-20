@@ -15,9 +15,15 @@ namespace Data.DataService
             _records = new List<IDataRecord>();
         }
 
+        public List<IDataRecord> GetAll()
+        {
+            return _records;
+        }
+
         public void Save(IDataRecord dataRecord)
         {
             _records.Add(dataRecord);
         }
+
     }
 }
