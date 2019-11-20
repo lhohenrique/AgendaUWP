@@ -16,6 +16,11 @@ namespace Data.DataService
             this._path = path;
         }
 
+        public List<IDataRecord> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Save(IDataRecord dataRecord)
         {
             File.WriteAllText(_path, dataRecord.ToString());

@@ -121,12 +121,16 @@
     </Compile>
     <Compile Include="Models\PageTokens.cs" />
     <Compile Include="ViewModels\AddContactPageViewModel.cs" />
+    <Compile Include="ViewModels\DetailContactPageViewModel.cs" />
     <Compile Include="ViewModels\EditContactPageViewModel.cs" />
     <Compile Include="ViewModels\ContactListPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\AddContactPage.xaml.cs">
       <DependentUpon>AddContactPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailContactPage.xaml.cs">
+      <DependentUpon>DetailContactPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditContactPage.xaml.cs">
       <DependentUpon>EditContactPage.xaml</DependentUpon>
@@ -164,6 +168,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DetailContactPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\EditContactPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,6 +188,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.1</Version>
     </PackageReference>
     <PackageReference Include="Prism.Unity">
       <Version>6.3.0</Version>
