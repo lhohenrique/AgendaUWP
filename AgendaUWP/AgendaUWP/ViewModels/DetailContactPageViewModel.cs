@@ -25,9 +25,6 @@ namespace AgendaUWP.ViewModels
         }
         #endregion
 
-        
-        
-
         #region Constructor
         public DetailContactPageViewModel(INavigationService navigationService)
         {
@@ -48,7 +45,6 @@ namespace AgendaUWP.ViewModels
             }
 
         }
-
 
         public override void OnNavigatingFrom(NavigatingFromEventArgs e, Dictionary<string, object> viewModelState, bool suspending)
         {
