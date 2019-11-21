@@ -3,7 +3,7 @@ using Prism.Commands;
 using Prism.Windows.Mvvm;
 using Prism.Windows.Navigation;
 using Service.Model;
-using Service.Contact;
+using Service.Interface;
 using System.Collections.Generic;
 
 namespace AgendaUWP.ViewModels
@@ -12,7 +12,7 @@ namespace AgendaUWP.ViewModels
     {
         #region properties
         private INavigationService navigationService;
-        private IContactService<Contact> contactService;
+        private IContactService contactService;
         private Contact contact;
         public Contact Contact
         {
@@ -22,7 +22,7 @@ namespace AgendaUWP.ViewModels
         #endregion
 
         #region Constructor
-        public AddContactPageViewModel(INavigationService navigationService, IContactService<Contact> contactService)
+        public AddContactPageViewModel(INavigationService navigationService, IContactService contactService)
         {
             this.navigationService = navigationService;
             this.contactService = contactService;
@@ -57,7 +57,7 @@ namespace AgendaUWP.ViewModels
 
         private void SaveContact()
         {
-            contactService.Add(Contact);
+            contactService.Insert(Contact);
             navigationService.Navigate(PageTokens.MainPage, false);
         }
 
