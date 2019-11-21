@@ -33,7 +33,9 @@
             <AppBarToggleButton 
                 Icon="Delete" 
                 Label="Delete"  
-                VerticalAlignment="Center" />
+                VerticalAlignment="Center"
+                Command="{Binding ContactDeleteCommand}"
+                CommandParameter="{Binding SelectedContact}"/>
             <AppBarSeparator/>
             
             <AppBarToggleButton 
