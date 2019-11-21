@@ -29,23 +29,41 @@ namespace Data.DataService
 
         public void Delete(object id)
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<T> GetAll()
-        {
             string[] linesJSON = null;
 
             if (_file != null)
             {
                 linesJSON = System.IO.File.ReadAllLines(@_file.Path);
-            }
+                List<T> all = new List<T>();
+                for (int i = 0; linesJSON != null && i < linesJSON.Length; i++)
+                {
+                    T deserializedObject = JsonConvert.DeserializeObject<T>(linesJSON[i]);
+                    if( !deserializedObject.ToString().ToLower().Equals(id.ToString().ToLower()) )
+                        all.Add(deserializedObject);
+                }
 
+                File.WriteAllText(_file.Path, "");
+
+                all.ForEach(delegate (T obj)
+                {
+                    Insert(obj);
+                });
+            }
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            string[] linesJSON = null;
             List<T> all = new List<T>();
-            for (int i = 0; linesJSON != null && i < linesJSON.Length; i++)
+
+            if (_file != null)
             {
-                T deserializedIDataRecord = JsonConvert.DeserializeObject<T>(linesJSON[i]);
-                all.Add(deserializedIDataRecord);
+                linesJSON = System.IO.File.ReadAllLines(@_file.Path);
+                for (int i = 0; linesJSON != null && i < linesJSON.Length; i++)
+                {
+                    T deserializedIDataRecord = JsonConvert.DeserializeObject<T>(linesJSON[i]);
+                    all.Add(deserializedIDataRecord);
+                }
             }
 
             return all;
@@ -53,8 +71,7 @@ namespace Data.DataService
 
         public T GetById(object id)
         {
-            T deserializedIDataRecord = JsonConvert.DeserializeObject<T>("");
-            return deserializedIDataRecord;
+            throw new NotImplementedException();
         }
 
         public void Insert(T obj)
