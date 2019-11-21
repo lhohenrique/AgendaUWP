@@ -4,7 +4,7 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Service.Model
 {
-    public class Contact : BindableBase, IDataRecord
+    public class Contact : BindableBase
     {
         #region Constructors
         public Contact(string FullName, string NickName, int Age, string Phone, BitmapImage Photo)
