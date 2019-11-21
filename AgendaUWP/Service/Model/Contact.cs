@@ -64,9 +64,9 @@ namespace Service.Model
             set { SetProperty(ref _phone, value); }
         }
 
-        public int GetHashcode()
+        public override string ToString()
         {
-            return this.GetHashCode();
+            return FullName + NickName + Age + Phone;
         }
         #endregion
     }
