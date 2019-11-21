@@ -65,7 +65,7 @@ namespace AgendaUWP.ViewModels
 
         private ObservableCollection<ContactItemsGroup> GetData()
         {
-            var contacts = _contactService.GetContacts();
+            var contacts = _contactService.GetAll();
             GroupedContactItems = contacts
                                     .OrderBy(c => c.FullName)
                                     .GroupBy(c => c.FullName.FirstOrDefault(), (key, list) => new ContactItemsGroup(key, list));

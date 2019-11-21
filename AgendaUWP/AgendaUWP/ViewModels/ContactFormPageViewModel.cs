@@ -70,11 +70,11 @@ namespace AgendaUWP.ViewModels
         {
             if (IsEdit)
             {
-                //contactService.update(Contact);
+                contactService.Update(Contact);
             }
             else
             {
-                //contactService.insert(Contact);
+                contactService.Insert(Contact);
             }
             navigationService.Navigate(PageTokens.MainPage, false);
         }
