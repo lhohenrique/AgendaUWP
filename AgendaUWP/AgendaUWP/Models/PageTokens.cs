@@ -9,8 +9,8 @@ namespace AgendaUWP.Models
     class PageTokens
     {
         public const string MainPage = "Main";
-        public const string AddContactPage = "AddContact";
-        public const string EditContactPage = "EditContact";
-        public const string DetailContactPage = "DetailContact";
+        public const string ContactFormPage = "ContactForm";
+        public const string ContactEditPage = "ContactEdit";
+        public const string ContactDetailPage = "ContactDetail";
     }
 }

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace AgendaUWP.ViewModels
 {
-    public class DetailContactPageViewModel : ViewModelBase
+    public class ContactDetailPageViewModel : ViewModelBase
     {
         #region properties
         private INavigationService navigationService;
@@ -26,7 +26,7 @@ namespace AgendaUWP.ViewModels
         #endregion
 
         #region Constructor
-        public DetailContactPageViewModel(INavigationService navigationService)
+        public ContactDetailPageViewModel(INavigationService navigationService)
         {
             this.navigationService = navigationService;
             InitilizeCommands();
@@ -48,18 +48,26 @@ namespace AgendaUWP.ViewModels
 
         #region commands
         public DelegateCommand CancelCommand { get; private set; }
+        public DelegateCommand<Contact> NavigateToEditContactPageCommand { get; set; }
         #endregion
 
         #region initializers
         private void InitilizeCommands()
         {
             CancelCommand = new DelegateCommand(Cancel);
+            NavigateToEditContactPageCommand = new DelegateCommand<Contact>(NavigateToEditContactPage);
         }
         #endregion
+
 
         private void Cancel()
         {
             navigationService.Navigate(PageTokens.MainPage, false);
+        }
+
+        private void NavigateToEditContactPage(Contact contact)
+        {
+            navigationService.Navigate(PageTokens.ContactFormPage, contact);
         }
     }
 }

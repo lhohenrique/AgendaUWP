@@ -60,7 +60,7 @@ namespace AgendaUWP.ViewModels
 
         private void GoToDetailContact(Contact contact)
         {
-            _navigationService.Navigate(PageTokens.DetailContactPage, contact);
+            _navigationService.Navigate(PageTokens.ContactDetailPage, contact);
         }
 
         private ObservableCollection<ContactItemsGroup> GetData()

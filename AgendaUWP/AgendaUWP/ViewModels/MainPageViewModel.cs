@@ -49,7 +49,7 @@ namespace AgendaUWP.ViewModels
 
         private void NavigateToAddContactPage()
         {
-            navigationService.Navigate(PageTokens.AddContactPage, false);
+            navigationService.Navigate(PageTokens.ContactFormPage, false);
         }
     }
 }
