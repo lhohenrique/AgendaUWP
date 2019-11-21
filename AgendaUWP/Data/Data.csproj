@@ -120,11 +120,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Repositories\AmazonDataStorage.cs" />
-    <Compile Include="DataService\IDataRecord.cs" />
-    <Compile Include="DataService\IDataStorage.cs" />
-    <Compile Include="Repositories\ListDataStorage.cs" />
-    <Compile Include="Repositories\TextFileDataStorage.cs" />
+    <Compile Include="DataService\GenericRepository.cs" />
+    <Compile Include="DataService\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Data.rd.xml" />
   </ItemGroup>
@@ -132,6 +129,12 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

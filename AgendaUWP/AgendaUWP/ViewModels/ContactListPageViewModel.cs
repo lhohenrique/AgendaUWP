@@ -2,7 +2,7 @@
 using Prism.Commands;
 using Prism.Windows.Mvvm;
 using Prism.Windows.Navigation;
-using Service.Contact;
+using Service.Interface;
 using Service.Model;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,7 +15,7 @@ namespace AgendaUWP.ViewModels
 
         #region properties
 
-        private readonly IContactService<Contact> _contactService;
+        private readonly IContactService _contactService;
         private INavigationService _navigationService;
 
         private ObservableCollection<ContactItemsGroup> data;
@@ -31,7 +31,7 @@ namespace AgendaUWP.ViewModels
 
         #region constructors
 
-        public ContactListPageViewModel(IContactService<Contact> contactService, INavigationService navigationService)
+        public ContactListPageViewModel(IContactService contactService, INavigationService navigationService)
         {
             this._contactService = contactService;
             this._navigationService = navigationService;
@@ -65,7 +65,7 @@ namespace AgendaUWP.ViewModels
 
         private ObservableCollection<ContactItemsGroup> GetData()
         {
-            var contacts = _contactService.GetContacts();
+            var contacts = _contactService.GetAll();
 
             ObservableCollection<ContactItemsGroup> contactsObservable;
 
