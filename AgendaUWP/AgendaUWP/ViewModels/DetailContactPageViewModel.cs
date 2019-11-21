@@ -37,13 +37,7 @@ namespace AgendaUWP.ViewModels
         public override void OnNavigatedTo(NavigatedToEventArgs e, Dictionary<string, object> viewModelState)
         {
             base.OnNavigatedTo(e, viewModelState);
-
-            if (e.Parameter != null && e.Parameter is Contact)
-            {
-                var contact = (Contact)e.Parameter;
-                SelectedContact = contact;
-            }
-
+            SelectedContact = (Contact)e.Parameter;
         }
 
         public override void OnNavigatingFrom(NavigatingFromEventArgs e, Dictionary<string, object> viewModelState, bool suspending)
