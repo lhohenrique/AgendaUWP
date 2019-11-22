@@ -23,6 +23,14 @@ namespace AgendaUWP.ViewModels
             get { return contact; }
             set { SetProperty(ref contact, value); }
         }
+
+        private string _messagem;
+        public string Message
+        {
+            get { return _messagem;  }
+            set { SetProperty(ref _messagem, value); }
+        }
+
         #endregion
 
         #region Constructor
@@ -68,15 +76,21 @@ namespace AgendaUWP.ViewModels
 
         private void SaveContact()
         {
-            if (IsEdit)
+            try
             {
-                contactService.Update(Contact);
+                if (IsEdit)
+                {
+                    contactService.Update(Contact);
+                }
+                else
+                {
+                    contactService.Insert(Contact);
+                }
+                navigationService.Navigate(PageTokens.MainPage, false);
             }
-            else
-            {
-                contactService.Insert(Contact);
+            catch(Exception e) {
+                Message = e.Message;
             }
-            navigationService.Navigate(PageTokens.MainPage, false);
         }
 
         private void CancelSave()
