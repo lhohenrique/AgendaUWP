@@ -41,7 +41,7 @@ namespace Data.DataService
         public void Delete(T parm)
         {
             IEnumerable<T> all = GetAll();
-            List<T> list = all.Where(x => x.ToString() != parm.ToString()).ToList();
+            List<T> list = all.Where(obj => obj.ToString() != parm.ToString()).ToList();
             UpdateFile(list);
         }
 
@@ -72,7 +72,7 @@ namespace Data.DataService
         public void Update(T parm)
         {
             IEnumerable<T> all = GetAll();
-            List<T> list = all.Where(x => x.ToString() != parm.ToString()).ToList();
+            List<T> list = all.Where(obj => obj.ToString() != parm.ToString()).ToList();
             list.Add(parm);
             UpdateFile(list);
         }
