@@ -42,8 +42,7 @@ namespace Data.DataService
         {
             IEnumerable<T> all = GetAll();
             List<T> list = all.Where(x => x.ToString() != parm.ToString()).ToList();
-            File.WriteAllText(_file.Path, "");
-            File.AppendAllText(_file.Path, JsonConvert.SerializeObject(list));
+            UpdateFile(list);
         }
 
         public IEnumerable<T> GetAll()
@@ -55,7 +54,6 @@ namespace Data.DataService
                 string file = File.ReadAllText(@_file.Path);
                 results = JsonConvert.DeserializeObject<List<T>>(file);
             }
-
             return results;
         }
 
@@ -64,17 +62,25 @@ namespace Data.DataService
             throw new NotImplementedException();
         }
 
-        public void Insert(T obj)
+        public void Insert(T parm)
         {
             List<T> list = GetAll().ToList();
-            list.Add(obj);
-            File.WriteAllText(_file.Path, "");
-            File.AppendAllText(_file.Path, JsonConvert.SerializeObject(list));
+            list.Add(parm);
+            UpdateFile(list);
         }
 
-        public void Update(T obj)
+        public void Update(T parm)
         {
-            throw new NotImplementedException();
+            IEnumerable<T> all = GetAll();
+            List<T> list = all.Where(x => x.ToString() != parm.ToString()).ToList();
+            list.Add(parm);
+            UpdateFile(list);
+        }
+
+        private void UpdateFile(List<T> list)
+        {
+            File.WriteAllText(_file.Path, "");
+            File.AppendAllText(_file.Path, JsonConvert.SerializeObject(list));
         }
     }
 }
