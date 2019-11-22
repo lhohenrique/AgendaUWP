@@ -86,6 +86,7 @@ namespace AgendaUWP.ViewModels
             if(ConfirmResult == ContentDialogResult.Primary)
             {
                 contactService.Delete(contact);
+                navigationService.Navigate(PageTokens.MainPage, false);
             }
         }
 

@@ -12,7 +12,7 @@ namespace Data.DataService
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly string _folderName = "data";
-        private readonly string _fileName = "contactList.json";
+        private readonly string _fileName = "contacts.json";
         private StorageFolder _newFolder;
         private StorageFile _file;
 
@@ -27,7 +27,7 @@ namespace Data.DataService
             _file = await _newFolder.CreateFileAsync(_fileName, CreationCollisionOption.ReplaceExisting);
         }
 
-        public void Delete(object id)
+        public void Delete(object contact)
         {
             string[] linesJSON = null;
 
@@ -38,7 +38,7 @@ namespace Data.DataService
                 for (int i = 0; linesJSON != null && i < linesJSON.Length; i++)
                 {
                     T deserializedObject = JsonConvert.DeserializeObject<T>(linesJSON[i]);
-                    if( !deserializedObject.ToString().ToLower().Equals(id.ToString().ToLower()) )
+                    if( !deserializedObject.ToString().ToLower().Equals(contact.ToString().ToLower()) )
                         all.Add(deserializedObject);
                 }
 
