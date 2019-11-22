@@ -18,9 +18,9 @@ namespace Service.Services
             _repository = new GenericRepository<Contact>();
         }
 
-        public void Delete(object id)
+        public void Delete(Contact contact)
         {
-            _repository.Delete(id);
+            _repository.Delete(contact);
         }
 
         public IEnumerable<Contact> GetAll()
@@ -33,15 +33,15 @@ namespace Service.Services
             return _repository.GetById(id);
         }
 
-        public void Insert(Contact obj)
+        public void Insert(Contact contact)
         {
-            obj.Validate();
-            _repository.Insert(obj);
+            contact.Validate();
+            _repository.Insert(contact);
         }
 
-        public void Update(Contact obj)
+        public void Update(Contact contact)
         {
-            _repository.Update(obj);
+            _repository.Update(contact);
         }
     }
 }
