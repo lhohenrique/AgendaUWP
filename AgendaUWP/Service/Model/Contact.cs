@@ -75,16 +75,16 @@ namespace Service.Model
         {
             var messages = new List<string>();
 
-            if (IsNullOREmpty(_fullname))
+            if (string.IsNullOrEmpty(_fullname))
                 messages.Add("Invalid Full Name Field");
 
-            if (IsNullOREmpty(_nickname))
+            if (string.IsNullOrEmpty(_nickname))
                 messages.Add("Invalid Nick Name Field");
 
-            if (IsNullOREmpty(_age))
+            if (string.IsNullOrEmpty(_age))
                 messages.Add("Invalid Age Field");
 
-            if (IsNullOREmpty(_phone) || !IsValidPhone(_phone))
+            if (string.IsNullOrEmpty(_phone) || !IsValidPhone(_phone))
                 messages.Add("Invalid Phone Field");
 
             if (messages.Count > 0)
@@ -96,7 +96,7 @@ namespace Service.Model
             bool isValid = true;
             try
             {
-                System.Convert.ToInt32(phone);
+                int.TryParse(phone, out int a);
             }
             catch (Exception)
             {
@@ -107,12 +107,7 @@ namespace Service.Model
                 isValid = false;
             
             return isValid;
-        }
-
-        private bool IsNullOREmpty(string field)
-        {
-            return field == null || field.Length == 0;
-        }
+        }        
         #endregion
     }
 }
