@@ -120,20 +120,16 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\PageTokens.cs" />
-    <Compile Include="ViewModels\AddContactPageViewModel.cs" />
-    <Compile Include="ViewModels\DetailContactPageViewModel.cs" />
-    <Compile Include="ViewModels\EditContactPageViewModel.cs" />
+    <Compile Include="ViewModels\ContactFormPageViewModel.cs" />
+    <Compile Include="ViewModels\ContactDetailPageViewModel.cs" />
     <Compile Include="ViewModels\ContactListPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\AddContactPage.xaml.cs">
-      <DependentUpon>AddContactPage.xaml</DependentUpon>
+    <Compile Include="Views\ContactFormPage.xaml.cs">
+      <DependentUpon>ContactFormPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DetailContactPage.xaml.cs">
-      <DependentUpon>DetailContactPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\EditContactPage.xaml.cs">
-      <DependentUpon>EditContactPage.xaml</DependentUpon>
+    <Compile Include="Views\ContactDetailPage.xaml.cs">
+      <DependentUpon>ContactDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ContactListPage.xaml.cs">
       <DependentUpon>ContactListPage.xaml</DependentUpon>
@@ -164,17 +160,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\AddContactPage.xaml">
+    <Page Include="Views\ContactFormPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DetailContactPage.xaml">
+    <Page Include="Views\ContactDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\EditContactPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ContactListPage.xaml">
       <SubType>Designer</SubType>

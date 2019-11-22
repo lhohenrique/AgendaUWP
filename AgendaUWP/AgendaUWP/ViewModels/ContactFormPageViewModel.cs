@@ -5,14 +5,18 @@ using Prism.Windows.Navigation;
 using Service.Model;
 using Service.Interface;
 using System.Collections.Generic;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+using System;
 
 namespace AgendaUWP.ViewModels
 {
-    class AddContactPageViewModel : ViewModelBase
+    class ContactFormPageViewModel : ViewModelBase
     {
         #region properties
         private INavigationService navigationService;
         private IContactService contactService;
+        private bool IsEdit = false;
         private Contact contact;
         public Contact Contact
         {
@@ -22,7 +26,7 @@ namespace AgendaUWP.ViewModels
         #endregion
 
         #region Constructor
-        public AddContactPageViewModel(INavigationService navigationService, IContactService contactService)
+        public ContactFormPageViewModel(INavigationService navigationService, IContactService contactService)
         {
             this.navigationService = navigationService;
             this.contactService = contactService;
@@ -34,7 +38,14 @@ namespace AgendaUWP.ViewModels
         #region overrides
         public override void OnNavigatedTo(NavigatedToEventArgs e, Dictionary<string, object> viewModelState)
         {
+            
             base.OnNavigatedTo(e, viewModelState);
+
+            if(e.Parameter as Contact != null)
+            {
+                Contact = e.Parameter as Contact;
+                IsEdit = true;
+            }
         }
         public override void OnNavigatingFrom(NavigatingFromEventArgs e, Dictionary<string, object> viewModelState, bool suspending)
         {
@@ -57,7 +68,14 @@ namespace AgendaUWP.ViewModels
 
         private void SaveContact()
         {
-            contactService.Insert(Contact);
+            if (IsEdit)
+            {
+                contactService.Update(Contact);
+            }
+            else
+            {
+                contactService.Insert(Contact);
+            }
             navigationService.Navigate(PageTokens.MainPage, false);
         }
 
