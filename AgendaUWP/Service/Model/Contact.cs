@@ -96,7 +96,7 @@ namespace Service.Model
             bool isValid = true;
             try
             {
-                int.TryParse(phone, out int a);
+                long.TryParse(phone, out long a);
             }
             catch (Exception)
             {
