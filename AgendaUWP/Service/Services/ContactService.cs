@@ -35,6 +35,7 @@ namespace Service.Services
 
         public void Insert(Contact obj)
         {
+            obj.Validate();
             _repository.Insert(obj);
         }
 
