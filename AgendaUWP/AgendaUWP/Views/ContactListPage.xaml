@@ -46,7 +46,9 @@
             VerticalAlignment="Top" 
             Background="White"
             BorderBrush="Gray"
-            Foreground="Black"/>
+            Foreground="Black"
+            Text="{Binding SearchQuery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            />
 
         <ListView
             x:Name="ContactList"

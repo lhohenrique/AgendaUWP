@@ -27,6 +27,17 @@ namespace AgendaUWP.ViewModels
 
         public IEnumerable<ContactItemsGroup> GroupedContactItems { get; private set; }
 
+        private string _searchQuery;
+        public string SearchQuery
+        {
+            get { return _searchQuery; }
+            set
+            {
+                SetProperty(ref _searchQuery, value);
+                Search(_searchQuery);
+            }
+        }
+
         #endregion
 
         #region constructors
@@ -66,12 +77,30 @@ namespace AgendaUWP.ViewModels
         private ObservableCollection<ContactItemsGroup> GetData()
         {
             var contacts = _contactService.GetAll();
-            GroupedContactItems = contacts
-                                    .OrderBy(c => c.FullName)
-                                    .GroupBy(c => c.FullName.FirstOrDefault(), (key, list) => new ContactItemsGroup(key, list));
-                                        
+
+            GroupedContactItems = GetGroupedContactItemsFromList(contacts);
+
             return new ObservableCollection<ContactItemsGroup>(GroupedContactItems);
 
+        }
+
+        private void Search(string query)
+        {
+            var contacts = _contactService.GetAll();
+
+            query = query.ToLowerInvariant();
+            contacts = contacts.Where(obj => obj.FullName.ToLowerInvariant().Contains(query)).ToList();
+
+            GroupedContactItems = GetGroupedContactItemsFromList(contacts);
+
+            Data = new ObservableCollection<ContactItemsGroup>(GroupedContactItems);
+        }
+
+        private IEnumerable<ContactItemsGroup> GetGroupedContactItemsFromList(IEnumerable<Contact> contacts)
+        {
+            return GroupedContactItems = contacts
+                                    .OrderBy(c => c.FullName)
+                                    .GroupBy(c => c.FullName.FirstOrDefault(), (key, list) => new ContactItemsGroup(key, list));
         }
         #endregion
     }
